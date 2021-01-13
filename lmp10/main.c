@@ -158,6 +158,26 @@ main (int argc, char **argv)
 
     fclose (gpf);
   }
+  free_ps(&pts,&spl);
 
   return 0;
 }
+
+
+void free_ps(points_t *pts, spline_t *spl){
+    if (pts->x != NULL)
+	free(pts->x);
+    if(pts->y != NULL)
+	free(pts->y);
+    if(spl->x != NULL)
+	free(spl->x);
+    if(spl->f != NULL)
+	free(spl->f);
+    if(spl->f1 != NULL)
+	free(spl->f1);
+    if(spl->f2 != NULL)
+	free(spl->f2);
+    if(spl->f3 != NULL)
+	free(spl->f3);
+}
+

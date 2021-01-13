@@ -4,8 +4,15 @@
 static int
 realloc_pts_failed (points_t * pts, int size)
 {
-  return realloc (pts->x, size * sizeof *pts->x) == NULL
-    || realloc (pts->y, size * sizeof *pts->y) == NULL;
+  double *x = realloc (pts->x, size * sizeof *pts->x);
+  double *y = realloc (pts->y, size * sizeof *pts->y);
+  
+  if (x != NULL)
+	pts->x = x;
+  if (y != NULL)
+	pts->y = y;
+  return x == y;
+
 }
 
 int
