@@ -23,6 +23,8 @@ char *usage =
   "               - n_points must be > 1\n"
   "            endif\n";
 
+void free_ps(points_t *pts, spline_t *spl);
+
 int
 main (int argc, char **argv)
 {
